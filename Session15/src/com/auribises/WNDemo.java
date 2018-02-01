@@ -48,6 +48,7 @@ class ReaderThread extends Thread{
 			
 			try {
 				m.wait();
+				//m.wait(2500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

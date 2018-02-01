@@ -23,10 +23,18 @@ class MyThread extends Thread{
 	}
 	
 	public void run(){
+		
+		// Object Level Locking
 		synchronized (q) {
 			q.printTable(5);
 			q.fun();
 		}
+		
+		// Class Level Locking
+		/*synchronized (Table.class) {
+			
+		}*/
+		
 	}
 }
 
@@ -40,6 +48,13 @@ class YourThread extends Thread{
 	
 	public void run(){
 		synchronized (q) {
+			
+			//System.out.println(Thread.currentThread().getState());
+			
+			/*if(Thread.currentThread().getState() == Thread.State.NEW){
+				
+			}*/
+			
 			q.printTable(7);
 		}
 	}
@@ -55,8 +70,13 @@ public class SyncDemo {
 		MyThread mRef = new MyThread(t); 
 		YourThread yRef = new YourThread(t);
 		
+		System.out.println(Thread.currentThread().getState());
+		
 		mRef.start();
 		yRef.start();
+		
+		// States of a Thread
+		//Thread.State.NEW
 		
 		System.out.println("Main Finished");
 	}
