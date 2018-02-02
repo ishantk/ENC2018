@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Vector;
 
 class Employee{
 	int eid;
@@ -164,6 +165,13 @@ public class ListDemo {
 		int idx = list2.indexOf("Jim");
 		idx = list2.lastIndexOf("Jim");
 		System.out.println(idx);
+		
+		// Thread-Safe
+		Vector<String> vector = new Vector<String>();
+		vector.add("George");
+		vector.add("Henry");
+		vector.add("Jim");
+		vector.add("Kim");
 	}
 
 }
