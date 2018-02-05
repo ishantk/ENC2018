@@ -22,7 +22,7 @@ public class SetDemo {
 		set1.add("Joe");
 		
 		System.out.println(set1);
-		
+
 		
 		if(set1.contains("John"))
 			System.out.println("John is in the set");
