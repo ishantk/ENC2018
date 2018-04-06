@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.jws.soap.SOAPBinding.Use;
 
 import com.auribises.model.User;
 
@@ -62,6 +65,35 @@ public class JDBCHelper {
 		}
 		
 		return i;
+	}
+	
+	public ArrayList<User> retrieveUsers(){
+		
+		ArrayList<User> userList = new ArrayList<User>();
+		
+		try {
+			
+			String sql = "select * from User";
+			pStmt = con.prepareStatement(sql);
+			ResultSet rs = pStmt.executeQuery();
+			
+			while(rs.next()){
+				
+				User user = new User();
+				
+				user.id = rs.getInt(1);
+				user.name = rs.getString(2);
+				user.email = rs.getString(3);
+				user.password = rs.getString(4);
+				
+				userList.add(user);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Exception "+e);
+		}
+		
+		return userList;
 	}
 	
 	public boolean loginUser(User user){
