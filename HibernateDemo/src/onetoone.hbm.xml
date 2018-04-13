@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   
+   <class name="com.auribises.model.Person" table="PERSON">
+      <id name="pid" column="PID">
+         <generator class="increment"/>
+      </id>
+      <property name="name" column="NAME" />
+      <property name="email" column="EMAIL" />
+      <property name="age" column="AGE" />
+      <one-to-one name="address" class="com.auribises.model.Address" cascade="all"/>
+   </class>
+   
+   <class name="com.auribises.model.Address" table="ADDRESS">
+      <id name="aid" column="AID">
+         <generator class="foreign">
+         	<param name="property">person</param>
+         </generator>
+      </id>
+      <property name="adrsLine" column="ADRSLINE" />
+      <property name="city" column="CITY" />
+      <property name="state" column="STATE" />
+      <property name="zipCode" column="ZIPCODE" />
+      <one-to-one name="person" class="com.auribises.model.Person" cascade="all" constrained="true"/>
+   </class>
+   
+</hibernate-mapping>

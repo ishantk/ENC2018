@@ -9,9 +9,13 @@
         <property name="hibernate.connection.username">root</property>
         <property name="connection.password"></property>
         <property name="connection.pool_size">10</property>
+        <property name="hibernate.jdbc.batch_size">100</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>               
-        <mapping resource="employee.hbm.xml"/>        
+        <!-- <mapping resource="employee.hbm.xml"/>  -->
+        <!-- <mapping resource="onetoone.hbm.xml"/>   -->
+        <!-- <mapping resource="onetomany.hbm.xml"/>  -->
+        <mapping resource="inheritance.hbm.xml"/>       
     </session-factory>
 </hibernate-configuration>
