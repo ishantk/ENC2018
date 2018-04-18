@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+   <!-- <bean id="btn1" class="com.auribises.view.Button" scope="prototype"> -->
+<!--    <bean id="btn1" class="com.auribises.view.Button" init-method="myInit" destroy-method="myDestroy">
+       <property name="width" value="300"/>
+       <property name="height" value="100"/>
+       <property name="text" value="Cancel"/>
+       <property name="color" value="Yellow"/>
+       <property name="id" value="333"/>
+   </bean>
+   
+   <bean class="com.auribises.view.PostProcessor" /> -->
+   
+   <!--  <bean id="btn2" class="com.auribises.view.Button">
+       <property name="width" value="300"/>
+       <property name="height" value="100"/>
+       <property name="text" value="Submit"/>
+       <property name="color" value="Green"/>
+       <property name="id" value="111"/>
+   </bean> -->
+   
+   <bean id="aRef" class="com.auribises.bean.Address">
+       <property name="adrsLine" value="Country Homes"/>
+       <property name="city" value="Ludhiana"/>
+       <property name="state" value="Punjab"/>
+       <property name="zipCode" value="141002"/>
+   </bean>
+   
+   <bean id="pRef" class="com.auribises.bean.Person">
+       <property name="name" value="John Watson"/>
+       <property name="email" value="john@exaple.com"/>
+       <property name="age" value="30"/>
+       <!-- <constructor-arg ref="aRef"/> -->
+       <property name="adrs" ref="aRef"/>
+       <property name="certificates">
+       	<list>
+       		<value>OCJP</value>
+       		<value>AWS</value>
+       		<value>CCNA</value>
+       	</list>
+       </property>
+   </bean>
+
+</beans>
