@@ -18,6 +18,9 @@ public class BeforeAdvice implements MethodBeforeAdvice{
 		System.out.println("obj is: "+obj);
 		
 		
+		User u = (User)obj;
+		u.name = "John Watson";
+		
 		System.out.println("======before======");
 	}
 

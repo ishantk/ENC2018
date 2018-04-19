@@ -8,8 +8,25 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
-   <bean id="hello" class="Hello">
-       <property name="msg" value="Hello!! Welcome to Spring class..."/>
-   </bean>
-
+    <bean id="uRef" class="com.auribises.model.User">
+    		<property name="name" value="John"/>
+    		<property name="email" value="john@example.com"/>
+    		<property name="password" value="John123"/>
+    </bean>
+    
+   	<bean id="befAdv" class="com.auribises.model.BeforeAdvice"/>
+	<bean id="aftAdv" class="com.auribises.model.AfterAdvice"/>
+	
+	<bean id="userProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    		<property name="target" ref="uRef"/>
+    		
+    		<property name="interceptorNames">
+    			<list>
+    				<value>befAdv</value>
+    				<value>aftAdv</value>
+    			</list>
+    		</property>
+    </bean>
+	
+	
 </beans>

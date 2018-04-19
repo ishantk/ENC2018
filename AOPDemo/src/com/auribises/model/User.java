@@ -43,14 +43,14 @@ public class User {
 	}
 	
 	// Business Method
-	void showUser(String dept, int floor){
+	public void showUser(String dept, int floor){
 		System.out.println("Welcome, Its: "+new Date());
 		System.out.println("Dear, "+name+"\nYou have been allocated "+dept+" department. Your sitting arrangement is on "+floor+" floor");
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [name=" + name + ", email=" + email + ", password=" + password + "]";
-	}
+	}*/
 
 }
